@@ -1,0 +1,17 @@
+name: Run Vodafone TV Grabber
+
+on:
+  workflow_dispatch: # Permite execução manual pelo GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download script
+        run: curl -O https://raw.githubusercontent.com/tdtplay/vodafone.pt/refs/heads/master/shell/tv_grab_pt_vdf.sh
+
+      - name: Make script executable
+        run: chmod +x tv_grab_pt_vdf.sh
+
+      - name: Run script
+        run: ./tv_grab_pt_vdf.sh
